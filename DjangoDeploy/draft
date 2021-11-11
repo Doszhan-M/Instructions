@@ -1,0 +1,24 @@
+sudo -u postgres psql
+
+CREATE DATABASE cargo_db;
+
+CREATE USER cargo_user WITH PASSWORD '12345';
+
+ALTER ROLE cargo_user SET client_encoding TO 'utf8';
+ALTER ROLE cargo_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE cargo_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE cargo TO cargo_user;
+
+
+
+sudo -u postgres psql
+
+CREATE DATABASE test_cargo_db;
+
+CREATE USER cargo_test_user WITH PASSWORD '12345';
+
+ALTER ROLE cargo_user SET client_encoding TO 'utf8';
+ALTER ROLE cargo_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE cargo_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE cargo TO cargo_user;
+

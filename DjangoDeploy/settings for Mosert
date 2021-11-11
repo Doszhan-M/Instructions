@@ -1,0 +1,113 @@
+tmux new -s session1
+tmux attach -t session1
+
+command = 'gunicorn'
+pythonpath = '/home/linux/github/MoCerts/MoCerts'
+bind = '127.0.0.1:8001'
+workers = 3
+user = 'linux'
+limit_request_fields = 32000
+limit_request_field_size = 0
+raw_env = 'DJANGO_SETTINGS_MODULE=MoCerts.settings'
+
+gunicorn  -c "/home/linux/github/MoCertsMe/MoCerts/gunicorn_config.py" MoCerts.wsgi
+
+
+
+server {
+    listen 80;
+    server_name mocerts.com www.mocerts.com; 
+    access_log  /var/log/nginx/example.log;
+ 
+    location /static/ {
+        alias  /home/linux/github/MoCertsMe/MoCerts/static/;
+        expires 30d;
+    }
+
+    location /media/ {
+        alias  /home/linux/github/MoCertsMe/MoCerts/media/;
+        expires 30d;
+    }
+ 
+    location / {
+        proxy_pass http://127.0.0.1:8001; 
+        proxy_set_header Host $server_name;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+После нстройки nginx, сразу установить certbot
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d mocerts.com
+
+
+3. Создать конфиг супервизора для gunicorn:
+sudo vim /etc/supervisor/conf.d/mocerts.conf
+
+[program:moserts_gunicorn]
+command=/home/linux/github/MoCertsMe/bin/start_gunicorn.sh
+user=linux
+process_name=%(program_name)s
+numprocs=1
+autostart=true
+autorestart=true
+redirect_stderr=true
+
+sudo vim /etc/supervisor/conf.d/mocerts_celery.conf
+
+[program:moserts_celery]
+command=/home/linux/github/MoCertsMe/bin/start_celery.sh
+user=linux
+process_name=%(program_name)s
+numprocs=1
+autostart=true
+autorestart=true
+redirect_stderr=true
+
+sudo supervisorctl restart all
+
+source /home/linux/github/MoCertsMe/venv/bin/activate
+
+
+5.
+CREATE DATABASE mocerts_db;
+CREATE USER mocerts_db WITH PASSWORD 'mocerts_db';
+
+ALTER ROLE mocerts_db SET client_encoding TO 'utf8';
+ALTER ROLE mocerts_db SET default_transaction_isolation TO 'read committed';
+ALTER ROLE mocerts_db SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE mocerts_db TO mocerts_db;
+
+
+Настройки Nginx после certbot
+server {
+    server_name mocerts.com;
+    access_log  /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+    
+    location /static/ {
+        alias /home/linux/github/MoCertsMe/MoCerts/static/;
+        expires 30d;
+    }
+
+    location /media/ {
+        alias /home/linux/github/MoCertsMe/MoCerts/media/;
+        expires 30d;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:8001;
+        proxy_set_header Host $server_name;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/mocerts.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mocerts.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}

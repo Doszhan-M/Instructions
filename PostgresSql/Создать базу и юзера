@@ -1,0 +1,40 @@
+1. Установить PostgreSQL
+sudo apt update
+sudo apt install -y postgresql postgresql-contrib
+
+Запустить 
+sudo service postgresql start
+
+2. Войти в PostgreSQL:
+sudo -u postgres psql
+
+3. Создать таблицу для текущего проекта:
+
+Создать базу:
+CREATE DATABASE cargo_db_new;
+
+Создать юзера под эту таблицу
+CREATE USER cargo WITH PASSWORD '12345';
+
+Предоставить доступы:
+ALTER ROLE cargo SET client_encoding TO 'utf8';
+ALTER ROLE cargo SET default_transaction_isolation TO 'read committed';
+ALTER ROLE cargo SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE cargo_db_new TO cargo;
+
+4. Рестарт PostgreSQL
+sudo service postgresql restart
+
+
+Пример:
+
+sudo -u postgres psql
+
+CREATE DATABASE test_cargo_db2;
+
+CREATE USER cargo_user WITH PASSWORD '12345';
+
+ALTER ROLE cargo_user SET client_encoding TO 'utf8';
+ALTER ROLE cargo_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE cargo_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE cargo TO cargo_user;

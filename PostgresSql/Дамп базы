@@ -1,0 +1,47 @@
+ОС 20.04.2 LTS
+
+1. Данный базы:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'cargo_db',
+        'USER': 'cargo_user',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+2. Проверка имени и логина:
+sudo psql --host=localhost --dbname=cargo_db --username=cargo_user
+
+3. Проверка экспорта базы в файл:
+pg_dump -U cargo_user -W cargo_db | gzip > cargo_db.gz
+
+Если не работает, то нужно изменить файл pg_hba.conf
+ 3.1 Проверка версии постгресс:
+ ls /etc/postgresql/
+    >12
+
+ 3.2 В соотвествии с версией открыть файл:
+ sudo vim /etc/postgresql/12/main/pg_hba.conf
+Изменить:
+local   all             postgres                                peer
+to
+local   all             postgres                                trust
+
+local   all             all                                peer
+to
+local   all             all                                md5
+
+ссылка на вопрос https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
+
+4.Перезагрузить постгресс
+sudo service postgresql restart
+
+5. Импорт дампа:
+pg_restore --host=localhost --port=5432 --username=cargo_user --dbname=cargo_db dump-20210922
+или
+pg_restore -h localhost -p 5432 -U cargo_user --dbname=cargo_db dump-20210922
+или 
+psql -U cargo_user -d cargo_db < dump-20210922
