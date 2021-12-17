@@ -9,3 +9,6 @@ docker-compose stop
 
 # Остановить все docker-compose и удалить контейнеры, флаг -v удалить также созданные тома локально
 docker-compose down -v 
+
+# Папка томов
+/var/lib/docker/volumes
