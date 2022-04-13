@@ -29,3 +29,7 @@ ssh linux@185.23.108.189
 sudo nano /etc/ssh/sshd_config
 Раскомменитовать строку PasswordAuthentication и дописать no, в итоге должно выглядить как
 PasswordAuthentication no
+
+Добавление пользователя, если отключен вход по паролю:
+nano ~/.ssh/authorized_keys
+вставить pub key
