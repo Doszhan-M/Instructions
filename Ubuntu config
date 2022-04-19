@@ -45,4 +45,6 @@ Desktop Icons NG
 
 sudo apt-get install nvidia-driver-510
 
+удалить игры:
+sudo apt remove aisleriot gnome-mahjongg gnome-mines gnome-sudoku gbrainy ace-of-penguins
 
