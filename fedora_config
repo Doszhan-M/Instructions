@@ -28,3 +28,6 @@ extensions, gnome tweaks
 https://extensions.gnome.org/
 AppIndicator and KStatusNotifierItem Support
 dash to panel
+
+новый keyring для chrom:
+rm ~/.local/share/keyrings/* 
