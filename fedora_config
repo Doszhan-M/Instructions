@@ -1,0 +1,30 @@
+смена клавиш раскладки
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+
+sudo dnf update
+sudo dnf install -y inxi neofetch htop
+
+
+shortcats:
+отключить системный super +v:
+shortcats -> system ->  show notification kist
+terminal
+gnome-terminal
+
+
+sudo dnf install akmod-nvidia
+
+настройка репозиториев:
+подключить flathub:
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+в настройках отметить flatpack, 
+
+
+открыть центр приложении установить:
+extensions, gnome tweaks
+
+установить расширения:
+https://extensions.gnome.org/
+AppIndicator and KStatusNotifierItem Support
+dash to panel
