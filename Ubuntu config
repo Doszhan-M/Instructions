@@ -42,8 +42,11 @@ dash to panel
 Applications Menu
 Desktop Icons NG
 
+установка nvidia:
+https://www.linuxcapable.com/ru/how-to-install-nvidia-drivers-on-ubuntu-22-04-lts/
 
-sudo apt-get install nvidia-driver-510
+включение wayland:
+https://askubuntu.com/questions/1403854/cant-use-wayland-with-nvidia-510-drivers-on-ubuntu-22-04-lts
 
 удалить игры:
 sudo apt remove aisleriot gnome-mahjongg gnome-mines gnome-sudoku gbrainy ace-of-penguins
