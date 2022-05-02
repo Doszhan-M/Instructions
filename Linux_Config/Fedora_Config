@@ -1,52 +1,115 @@
+https://vk.com/@plafonvk-fedorazero
+
+sudo nano /etc/dnf/dnf.conf
+fastestmirror=True 
+max_parallel_downloads=10 
+defaultyes=True
+ 
+sudo dnf autoremove
+sudo dnf clean all  
+
+перед апдтом выполнить:
+sudo rpm -Va --nofiles --nodigest
+sudo rpm --rebuilddb
+sudo dnf update
+
+    
+sudo dnf -y install inxi neofetch htop
+neofetch
+inxi -G
+inxi -A
+
+
+драйвер nvidia:
+sudo dnf -y install akmod-nvidia
+
+включение wayland nvidia:
+завершить сеанс, в нижнем левом углу выбрать wayland
+нельзя ставить gwe для nvidia на wayland
+
+
+sudo dnf -y install timeshift
+
+
 смена клавиш раскладки
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 
-https://vk.com/@plafonvk-fedorazero
-
-sudo dnf update
-sudo dnf install -y inxi neofetch htop
-
-
-shortcats:
-отключить системный super +v:
-shortcats -> system ->  show notification kist
-terminal
-gnome-terminal
 
 Grub Settings:
+git clone https://github.com/vinceliuice/grub2-themes.git
 sudo nano /etc/default/grub
 change rows to:
 GRUB_TERMINAL_OUTPUT="gfxterm"
 GRUB_ENABLE_BLSCFG = false
+GRUB_DEFAULT="saved"
+GRUB_SAVEDEFAULT=true
+sudo ./install.sh -t tela -s 4k
+
 for change os names:
 sudo dnf install grub-customizer
 grub-customizer
-themes:
-https://github.com/vinceliuice/grub2-themes.git
-sudo ./install.sh -t vimix -s 4k
+
+fix /EFI/fedora/grubenv’ not found:
+sudo dnf -y reinstall grub2-common
+sudo grub2-editenv create
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+sudo dracut -f --regenerate-all
+
+Дополнительный команды, если ни промогает:
 sudo find /boot -iname '*grub*.cfg'
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+
+sudo mv /etc/grub.d/ /etc/grub.d_backup/
+sudo dnf reinstall grub2-tools -y
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
-sudo dnf install akmod-nvidia
+шорткат для терминала:
+terminal
+gnome-terminal
+super + T
 
-настройка репозиториев:
-подключить flathub:
+
+подключение flathub в менеджер приложении:
+https://flatpak.org/setup/Fedora
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-в настройках отметить flatpack,
+flatpak install -y flathub com.mattjakeman.ExtansionManager
+проверка поиск приложения kdenlive в менеджере приложении
 
 
-открыть центр приложении установить:
-extensions, gnome tweaks
+доп настройки gnome: в менеджере прил поиск gnome, установить доп настройки
+в менеджере приложении поиск extensions, установить расширения
 
-установить расширения:
+установка расширении:
 https://extensions.gnome.org/
-AppIndicator and KStatusNotifierItem Support
+AppIndicator and KStatusNotifierItem
 dash to panel
+Applications Menu
+Desktop Icons NG
+
+vscode:
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+dnf check-update
+sudo dnf install code
+
 
 новый keyring для chrom:
 rm ~/.local/share/keyrings/*
+
+
+кодеки:
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+sudo dnf install lame\* --exclude=lame-devel
+sudo dnf group upgrade --with-optional Multimedia
+
+
+leafpad:
+sudo dnf makecache --refresh
+sudo dnf -y install leafpad
+
 
 установка zsh:
 https://habr.com/ru/post/516004/
