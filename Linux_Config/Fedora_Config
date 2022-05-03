@@ -112,6 +112,16 @@ sudo dnf -y install leafpad
 
 
 установка zsh:
+sudo dnf -y install zsh
+zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+nano ~/.zshrc
+plugins=(git zsh-syntax-highlighting)
+ZSH_THEME="philips"
+chsh
+/bin/zsh
+
 https://habr.com/ru/post/516004/
 по умолчанию:
 https://losst.ru/nastrojka-zsh-i-oh-my-zsh
@@ -119,7 +129,40 @@ https://losst.ru/nastrojka-zsh-i-oh-my-zsh
 https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 
-dbus-send --type=method_call --dest=io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow io.crow_translate.CrowTranslate.MainWindow.translateSelection
-
 wallpapers:
 https://www.wallpaperflare.com/
+
+
+Установка Docker:
+sudo dnf upgrade
+sudo dnf update
+sudo dnf install dnf-plugins-core -y
+добавить репозитории:
+sudo dnf config-manager \
+    --add-repo \
+    https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo docker version
+sudo usermod -aG docker $USER
+reboot
+docker version
+
+Установка docker-compose:
+https://github.com/docker/compose/tags
+export VER="1.29.2"
+sudo curl -L "https://github.com/docker/compose/releases/download/${VER}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+скрипт завершения:
+mkdir -p ~/.zsh/completion
+curl -L https://raw.githubusercontent.com/docker/compose/${VER}/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+
+
+
+dbus-send --type=method_call --dest=io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow io.crow_translate.CrowTranslate.MainWindow.translateSelection
+
+
