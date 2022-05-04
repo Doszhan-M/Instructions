@@ -88,6 +88,8 @@ AppIndicator and KStatusNotifierItem
 dash to panel
 Applications Menu
 Desktop Icons NG
+Clipboard History
+
 
 vscode:
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -160,6 +162,11 @@ mkdir -p ~/.zsh/completion
 curl -L https://raw.githubusercontent.com/docker/compose/${VER}/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+
+Удалить битый репозитории:
+dnf repolist 
+sudo dnf config-manager --set-disabled download.docker.com_linux_fedora_docker-ce.repo
 
 
 
