@@ -1,56 +1,184 @@
-sudo apt update
-sudo apt install -y inxi neofetch htop
-neofetch
-inxi -G
-inxi -A
-
-
-grube-settings:
-sudo apt install grub-customizer
-grub-customizer
-command for install custom theme:
-sudo ./install.sh
-instal 2 times
-если grube не сохраняет последнию загрузку:
-sudo nano  /etc/default/grub
-добавить:
-GRUB_DEFAULT="saved"
-GRUB_SAVEDEFAULT=true
-обновить grube:
-sudo update-grub
-
-
 смена клавиш раскладки
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 
 
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+Установите рабочий стол GNOME 41.2 на Debian 11 Bullseye:
+https://www.linuxcapable.com/ru/%d0%ba%d0%b0%d0%ba-%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%b8%d1%82%d1%8c-gnome-41-%d0%bd%d0%b0%d1%81%d1%82%d0%be%d0%bb%d1%8c%d0%bd%d1%8b%d0%b9-%d0%bd%d0%b5%d1%81%d1%82%d0%b0%d0%b1%d0%b8%d0%bb/
+sudo apt update && sudo apt upgrade -y
+sudo nano /etc/apt/sources.list
+add:
+deb http://deb.debian.org/debian unstable main contrib non-free
+deb-src http://deb.debian.org/debian unstable main contrib non-free
+
+sudo nano /etc/apt/preferences
+add:
+Package: *
+Pin: release a=bullseye
+Pin-Priority: 500
+
+Package: *
+Pin: release a=unstable
+Pin-Priority: 100
+
+Package: gnome-tweaks
+Pin: release a=unstable
+Pin-Priority: 1000
+
+sudo apt update
+sudo apt -t unstable install gnome-session gnome-shell gnome-backgrounds gnome-applets gnome-control-center mutter gjs
+sudo reboot
+gnome-shell --version
+
+Если есть проблемы с запуском gnome-tweaks:
+установить пакеты из debian gnome tweaks
+
+sudo dpkg -i libhandy-1-0_1.6.2-1_amd64.deb 
+sudo dpkg -i gir1.2-handy-1_1.6.2-1_amd64.deb 
+sudo apt remove gnome-tweaks -y
+sudo apt install gnome-tweaks -y
+
+sudo nano /etc/apt/preferences
+add:
+Package: gnome-session
+Pin: release a=unstable
+Pin-Priority: 1000
+
+Package: gnome-backgrounds
+Pin: release a=unstable
+Pin-Priority: 1000
+
+Package: gnome-applets
+Pin: release a=unstable
+Pin-Priority: 1000
+
+Package: gnome-control-center
+Pin: release a=unstable
+Pin-Priority: 1000
+
+Package: mutter
+Pin: release a=unstable
+Pin-Priority: 1000
+
+Package: gjs
+Pin: release a=unstable
+Pin-Priority: 1000
+
+sudo apt update
 
 
-доп настройки gnome: в менеджере прил поиск gnome, установить доп настройки
-в менеджере приложении поиск extensions, установить расширения
+
+ Install NVIDIA 510:
+ https://www.linuxcapable.com/install-510-nvidia-drivers-on-debian-11-bullseye/
+ sudo apt-get install wget
+ sudo apt update && sudo apt upgrade -y
+ sudo wget -O- https://developer.download.nvidia.com/compute/cuda/repos/debian11/x86_64/3bf863cc.pub | gpg --dearmor | sudo tee /usr/share/keyrings/nvidia-drivers.gpg
+ echo 'deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/debian11/x86_64/ /' | sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
+ sudo add-apt-repository contrib
+ sudo apt update && sudo apt upgrade -y
+ sudo apt install cuda nvidia-driver nvidia-settings nvidia-smi nvidia-xconfig nvidia-opencl-icd nvidia-opencl-common nvidia-detect linux-image-amd64 linux-headers-amd64
+ sudo reboot
 
 
+
+Install Google Chrome:
+https://www.linuxcapable.com/how-to-install-google-chrome-on-debian-11/
+sudo apt update && sudo apt upgrade
+sudo apt install software-properties-common apt-transport-https wget ca-certificates gnupg2 -y
+sudo wget -O- https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg
+echo deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main | sudo tee /etc/apt/sources.list.d/google-chrome.list
+sudo apt update
+sudo apt install google-chrome-stable -y
+
+
+
+Installing Git:
+sudo apt install git
+git --version
+
+
+
+Install Visual Studio Code:
+sudo apt update
+sudo apt install -y curl apt-transport-https
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/ms-vscode-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/ms-vscode-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+sudo apt update
+sudo apt install -y code
+
+
+
+sudo apt -y install inxi neofetch htop
+neofetch
+inxi -G
+inxi -A
+
+
+
+шорткат для терминала:
+terminal
+gnome-terminal
+super + T
+
+
+
+подключение flathub
+https://flatpak.org/setup/Debian
+sudo apt install flatpak
+sudo apt install gnome-software-plugin-flatpak
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+
+менеджере приложении поиск extensions
 установка расширении:
 https://extensions.gnome.org/
-установить главное расширение
-список расширнии:
 AppIndicator and KStatusNotifierItem
 dash to panel
 Applications Menu
 Desktop Icons NG
+Clipboard History
 
-установка nvidia:
-https://www.linuxcapable.com/ru/how-to-install-nvidia-drivers-on-ubuntu-22-04-lts/
 
-включение wayland:
-https://askubuntu.com/questions/1403854/cant-use-wayland-with-nvidia-510-drivers-on-ubuntu-22-04-lts
+leafpad:
+sudo apt update
+sudo apt install snapd
+sudo systemctl start snapd
+sudo snap install leafpad
+sudo snap install core
+sudo reboot
 
-удалить игры:
-sudo apt remove aisleriot gnome-mahjongg gnome-mines gnome-sudoku gbrainy ace-of-penguins
 
-port proton utf8:
-https://www.blast.hk/threads/111953/
+crow-translate:
+sudo add-apt-repository ppa:jonmagon/crow-translate
+sudo apt update
+sudo apt install crow-translate
+apt --fix-broken install
+удалить из репозиторяия ppa:jonmagon/crow-translate
+sudo apt update
+
+
+
+Установка Docker:
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list  /dev/null
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce -y
+sudo systemctl start docker
+sudo systemctl status docker
+sudo groupadd docker
+sudo gpasswd -a $USER docker 
+
+Установка docker-compose:
+https://github.com/docker/compose/tags
+export VER="1.29.2"
+sudo curl -L "https://github.com/docker/compose/releases/download/${VER}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
+
+
+Удалить ненужные программы:
 
