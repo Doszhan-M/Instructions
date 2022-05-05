@@ -1,0 +1,56 @@
+sudo apt update
+sudo apt install -y inxi neofetch htop
+neofetch
+inxi -G
+inxi -A
+
+
+grube-settings:
+sudo apt install grub-customizer
+grub-customizer
+command for install custom theme:
+sudo ./install.sh
+instal 2 times
+если grube не сохраняет последнию загрузку:
+sudo nano  /etc/default/grub
+добавить:
+GRUB_DEFAULT="saved"
+GRUB_SAVEDEFAULT=true
+обновить grube:
+sudo update-grub
+
+
+смена клавиш раскладки
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+
+доп настройки gnome: в менеджере прил поиск gnome, установить доп настройки
+в менеджере приложении поиск extensions, установить расширения
+
+
+установка расширении:
+https://extensions.gnome.org/
+установить главное расширение
+список расширнии:
+AppIndicator and KStatusNotifierItem
+dash to panel
+Applications Menu
+Desktop Icons NG
+
+установка nvidia:
+https://www.linuxcapable.com/ru/how-to-install-nvidia-drivers-on-ubuntu-22-04-lts/
+
+включение wayland:
+https://askubuntu.com/questions/1403854/cant-use-wayland-with-nvidia-510-drivers-on-ubuntu-22-04-lts
+
+удалить игры:
+sudo apt remove aisleriot gnome-mahjongg gnome-mines gnome-sudoku gbrainy ace-of-penguins
+
+port proton utf8:
+https://www.blast.hk/threads/111953/
+
