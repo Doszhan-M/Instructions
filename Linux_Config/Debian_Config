@@ -209,6 +209,7 @@ sudo apt -y install solaar
 sudo apt update
 sudo apt purge gnome-2048 fcitx kasumi aisleriot atomix gnome-chess five-or-more hitori iagno gnome-klotski lightsoff gnome-mahjongg gnome-mines gnome-nibbles quadrapassel four-in-a-row gnome-robots gnome-sudoku swell-foop tali gnome-taquin gnome-tetravex -y & sudo apt autoremove -y
 sudo apt purge xiterm+thai goldendict gnome-contacts gnome-documents hdate-applet uim-gtk2.0 mozc-server mozc-utils-gui mozc-data mlterm malcontent shotwell thunderbird
+sudo apt -y purge mlterm-im-skk mlterm-im-uim mlterm-im-wnn mlterm-tiny mlterm-im-canna mlterm-im-scim mlterm-im-m17nlib mlterm-tools mlterm mlterm-im-ibus mlterm-common mlterm-im-fcitx
 
 fcitx удалить через synaptic
 sudo apt-get autoremove
