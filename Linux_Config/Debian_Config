@@ -216,3 +216,26 @@ sudo apt-get autoremove
 
 find packege:
 apt-cache pkgnames {name}
+
+
+
+Изменить локаль на ru:
+https://unix.stackexchange.com/questions/679315/gnome-debian-11-how-to-install-en-dk-formats-date-numbers-units
+
+
+
+Install telegram:
+flatpack
+
+
+
+Grub Settings:
+git clone https://github.com/vinceliuice/grub2-themes.git
+sudo ./install.sh -t tela -s 4k
+sudo apt install grub-customizer -y
+sudo grub-customizer
+
+
+TimeShift Settings:
+sudo apt install timeshift -y
+
