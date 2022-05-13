@@ -64,6 +64,10 @@ Package: gjs
 Pin: release a=unstable
 Pin-Priority: 1000
 
+Package: libgtk-3-0 
+Pin: release a=unstable
+Pin-Priority: 1000
+
 sudo apt update
 
 
