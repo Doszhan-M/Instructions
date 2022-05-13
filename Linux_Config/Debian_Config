@@ -64,7 +64,7 @@ Package: gjs
 Pin: release a=unstable
 Pin-Priority: 1000
 
-Package: libgtk-3-0 
+Package: libgtk-3-common
 Pin: release a=unstable
 Pin-Priority: 1000
 
