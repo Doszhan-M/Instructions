@@ -42,7 +42,7 @@ Pin: release a=testing
 Pin-Priority: 100
 
 sudo apt update
-
+switch session from wayland to xorg
 
 
 Install NVIDIA 510:
