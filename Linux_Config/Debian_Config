@@ -1,13 +1,23 @@
+sudo apt update && sudo apt upgrade -y
+
 смена клавиш раскладки:
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 
 
-sudo apt install neofetch inxi htop -y
+sudo apt install git neofetch inxi htop -y
+
+
+Install Visual Studio Code:
+sudo apt update
+sudo apt install -y curl apt-transport-https
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/ms-vscode-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/ms-vscode-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+sudo apt update
+sudo apt install -y code
 
 
 Kernel update:
-sudo apt update && sudo apt upgrade -y
 sudo nano /etc/apt/sources.list
 add:
 deb http://deb.debian.org/debian testing main contrib non-free
@@ -128,16 +138,6 @@ sudo apt install google-chrome-stable -y
 Installing Git:
 sudo apt install git
 git --version
-
-
-
-Install Visual Studio Code:
-sudo apt update
-sudo apt install -y curl apt-transport-https
-curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/ms-vscode-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/ms-vscode-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
-sudo apt update
-sudo apt install -y code
 
 
 
