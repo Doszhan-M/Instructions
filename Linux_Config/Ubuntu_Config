@@ -1,8 +1,31 @@
+Во время установки выбрать минимальная установка + поддержка проприетарных драйверов
+
 sudo apt update
-sudo apt install -y inxi neofetch htop
+sudo apt upgrade -y
+sudo reboot
+
+В драйверах выбрать nvidia + выйти из сессии и отключить wayland
+
+sudo apt install -y inxi neofetch htop git
 neofetch
 inxi -G
 inxi -A
+sudo reboot
+
+
+смена клавиш раскладки
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+
+
+chrom и vscode скачать из офф сайта и установить через контекстное меню software installer
+
+
+Из software center установить:
+telegram
+gnome tweaks
+extension manager
+vlc
 
 
 grube-settings:
@@ -19,10 +42,6 @@ GRUB_SAVEDEFAULT=true
 обновить grube:
 sudo update-grub
 
-
-смена клавиш раскладки
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
