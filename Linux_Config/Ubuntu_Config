@@ -1,10 +1,13 @@
 Во время установки выбрать минимальная установка + поддержка проприетарных драйверов
 
+
 sudo apt update
 sudo apt upgrade -y
 sudo reboot
 
+
 В драйверах выбрать nvidia + выйти из сессии и отключить wayland
+
 
 sudo apt install -y inxi neofetch htop git
 neofetch
@@ -18,7 +21,9 @@ gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 
 
-chrom и vscode скачать из офф сайта и установить через контекстное меню software installer
+chrom, vscode, сrow еranslate:
+скачать из офф сайта и установить через контекстное меню software installer
+также есть в Programs_Store
 
 
 Из software center установить:
@@ -26,6 +31,17 @@ telegram
 gnome tweaks
 extension manager
 vlc
+
+
+Установка расширении из extension manager:
+dash to panel
+Clipboard History
+
+
+
+
+
+
 
 
 grube-settings:
@@ -44,22 +60,10 @@ sudo update-grub
 
 
 
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 
-доп настройки gnome: в менеджере прил поиск gnome, установить доп настройки
-в менеджере приложении поиск extensions, установить расширения
 
 
-установка расширении:
-https://extensions.gnome.org/
-установить главное расширение
-список расширнии:
-AppIndicator and KStatusNotifierItem
-dash to panel
-Applications Menu
-Desktop Icons NG
 
 установка nvidia:
 https://www.linuxcapable.com/ru/how-to-install-nvidia-drivers-on-ubuntu-22-04-lts/
