@@ -38,41 +38,28 @@ dash to panel
 Clipboard History
 
 
-
-
-
-
-
-
 grube-settings:
+sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
+sudo apt update
 sudo apt install grub-customizer
-grub-customizer
+sudo grub-customizer
+
 command for install custom theme:
+открыть в терминале папку ./Programs_Store/SleekTheme-BigSur
 sudo ./install.sh
-instal 2 times
+sudo update-grub
+
 если grube не сохраняет последнию загрузку:
 sudo nano  /etc/default/grub
 добавить:
 GRUB_DEFAULT="saved"
 GRUB_SAVEDEFAULT=true
-обновить grube:
+
 sudo update-grub
 
 
 
-
-
-
-
-
-установка nvidia:
-https://www.linuxcapable.com/ru/how-to-install-nvidia-drivers-on-ubuntu-22-04-lts/
-
-включение wayland:
-https://askubuntu.com/questions/1403854/cant-use-wayland-with-nvidia-510-drivers-on-ubuntu-22-04-lts
-
-удалить игры:
-sudo apt remove aisleriot gnome-mahjongg gnome-mines gnome-sudoku gbrainy ace-of-penguins
+flathub:
 
 port proton utf8:
 https://www.blast.hk/threads/111953/
