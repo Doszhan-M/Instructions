@@ -21,7 +21,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 
 
-chrom, vscode, сrow еranslate:
+chrome, vscode, сrow translate:
 скачать из офф сайта и установить через контекстное меню software installer
 также есть в Programs_Store
 
@@ -44,9 +44,15 @@ sudo apt update
 sudo apt install grub-customizer
 sudo grub-customizer
 
+1)
 command for install custom theme:
 открыть в терминале папку ./Programs_Store/SleekTheme-BigSur
 sudo ./install.sh
+sudo update-grub
+2)
+cd github
+git clone https://github.com/vinceliuice/grub2-themes.git
+sudo ./install.sh -t whitesur -s 4k
 sudo update-grub
 
 если grube не сохраняет последнию загрузку:
@@ -54,12 +60,26 @@ sudo nano  /etc/default/grub
 добавить:
 GRUB_DEFAULT="saved"
 GRUB_SAVEDEFAULT=true
-
 sudo update-grub
 
 
 
 flathub:
+https://flatpak.org/setup/Ubuntu
+sudo apt install flatpak -y
+sudo apt install gnome-software-plugin-flatpak -
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+
+Добавить локаль на ru:
+sudo nano /etc/locale.gen
+uncomment: ru_RU.UTF-8 UTF-8
+sudo locale-gen
+изменить настройки локали в настройках
+
+
+
+
 
 port proton utf8:
 https://www.blast.hk/threads/111953/

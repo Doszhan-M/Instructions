@@ -251,7 +251,7 @@ sudo apt -y purge mlterm-im-skk mlterm-im-uim mlterm-im-wnn mlterm-tiny mlterm-i
 fcitx удалить через synaptic
 sudo apt-get autoremove
 
-find packege:
+find package:
 apt-cache pkgnames {name}
 
 
