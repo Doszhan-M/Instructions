@@ -275,4 +275,3 @@ sudo grub-customizer
 
 TimeShift Settings:
 sudo apt install timeshift -y
-
