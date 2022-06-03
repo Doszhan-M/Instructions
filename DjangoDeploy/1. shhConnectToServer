@@ -20,6 +20,7 @@ sudo whoami
 
 После этого разрываем соединение и копируем ssh ключь
 ssh-copy-id linux@185.23.108.189
+ssh-copy-id af@10.192.168.5
 acer123
 
 Вход по ssh
