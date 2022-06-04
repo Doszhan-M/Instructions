@@ -144,7 +144,7 @@ id -nG
 
 Docker-compose:
 страница релизов: https://github.com/docker/compose/releases
-версию 2 не брать: 1.29.2
+версию 2 не ставить: 1.29.2
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
@@ -158,3 +158,6 @@ sudo apt install timeshift -y
 port proton utf8:
 https://www.blast.hk/threads/111953/
 
+
+Символьная ссылка на папку в другом диске:
+sudo ln -s /media/asus/E2666DE8666DBE43/Store /home/asus/Store
