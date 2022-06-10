@@ -160,4 +160,4 @@ https://www.blast.hk/threads/111953/
 
 
 Символьная ссылка на папку в другом диске:
-sudo ln -s /media/asus/E2666DE8666DBE43/Store /home/asus/Store
+sudo ln -s /mnt/E2666DE8666DBE43/Store /home/asus/Store
