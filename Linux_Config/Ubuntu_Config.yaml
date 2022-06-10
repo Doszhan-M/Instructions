@@ -99,18 +99,22 @@ sudo apt -y install zsh
 zsh
 sudo apt-get install curl -y
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 nano ~/.zshrc
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions history-substring-search zsh-syntax-highlighting)
 ZSH_THEME="philips"
 chsh
 /bin/zsh
 
+Статьи:
 https://habr.com/ru/post/516004/
 по умолчанию:
 https://losst.ru/nastrojka-zsh-i-oh-my-zsh
 темы отредактировать vi ~/.zshrc:
 https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+Автодополнение:
+https://tehnojam.ru/category/software/oh-my-zsh-autocomlite-like-fish.html
 
 
 
