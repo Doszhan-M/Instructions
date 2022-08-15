@@ -1,14 +1,20 @@
 # инициализация swarm на master node
 docker swarm init
 
+# присоединить worker ноды
+docker swarm join --token SWMTKN-1-1syc7fhxsgkyoot71r2io7x8n5xaxmxulwtcfsovgsf099so6s-761a3k66huuq1yd0bx2mso8y5 10.217.6.191:2377
+
+# список доступных нод
+docker node ls
+
 # список сервисов swarm
 docker service ls
 
-# список доступных нод
-docker node ls
+# деплой docker-stack.yml
+docker stack deploy -c docker-stack.yml pk
 
-# присоединить worker ноды
-docker swarm join --token SWMTKN-1-69nzfscisrpszxvotwjor1cn4n5uxk63wy6zbpopgff5dk0pm1-2ue3awirwxxljjtyjnt9o0rjq 10.217.6.191:2377
+# лог контейнера
+docker service logs -f pk_pgadmin
 
-# список доступных нод
-docker node ls
+# данный о контейнере
+docker service ps pk_pgadmin
