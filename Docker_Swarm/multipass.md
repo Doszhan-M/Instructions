@@ -1,13 +1,18 @@
-multipass launch --name pkMaster
-multipass launch --name pkWorker1
-multipass launch --name pkWorker2
+sudo snap install multipass
 
-multipass list
-multipass stop pkWorker2
-multipass delete pkWorker2
+multipass launch --name pkMaster --disk 20G  -m 5G
+multipass launch --name pkWorker1 --disk 20G -m 4G
+multipass launch --name pkWorker2 --disk 20G -m 2G  
+
+multipass list  
+multipass stop pkWorker
+multipass delete pkWorker
+multipass delete --all
 multipass purge
 
-multipass shell pkMaster
+multipass shell pkMaster    
+df -h
+free -h
 multipass shell pkWorker1
 multipass shell pkWorker2
 
