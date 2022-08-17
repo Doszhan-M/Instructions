@@ -20,7 +20,7 @@ docker stack deploy --with-registry-auth -c docker-stack-dev.yml pk
 docker stack rm pk
 
 # лог контейнера
-docker service logs -f pk_postgres_keycloak
+docker service logs -f pk_dockupdater
 
 # состояние сервиса
 docker service ps pk_postgres
@@ -34,3 +34,6 @@ docker volume rm pk_pgdata pk_pgadmin_backend
 
 # инспектирование контейнера
 docker inspect pk_postgres
+
+# rollback сервиса
+docker service rollback pk_websocket
