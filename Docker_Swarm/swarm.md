@@ -22,6 +22,9 @@ docker stack rm pk
 # лог контейнера
 docker service logs -f pk_postgres_keycloak
 
+# состояние сервиса
+docker service ps pk_postgres
+
 # данный о контейнере
 docker service ps pk_postgres
 

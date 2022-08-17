@@ -32,4 +32,5 @@ docker logs UbuntuNewName
 # Удалить контейнер
 docker rm heuristic_marquis
 
-
+# Очистить все
+docker system prune --all -f
