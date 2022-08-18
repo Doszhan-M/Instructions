@@ -1,6 +1,9 @@
 # инициализация swarm на master node
 docker swarm init
 
+# покинуть swarm
+docker swarm leave -f
+
 # Присвоить label на ноду
 docker node update --label-add postgres=true nodeName
 
