@@ -42,4 +42,8 @@
         "psql",
         
     ],
+    "cSpell.words": [
+        "adduser",
+        "bitnami"
+    ],
 }

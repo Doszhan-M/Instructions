@@ -23,7 +23,7 @@ docker stack deploy --with-registry-auth -c docker-stack-dev.yml pk
 docker stack rm pk
 
 # лог контейнера
-docker service logs -f pk_backend_celery
+docker service logs -f pk_flower_backend
 
 # состояние сервиса
 docker service ps pk_postgres
