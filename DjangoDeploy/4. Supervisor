@@ -6,18 +6,7 @@ supervisord -v
 systemctl status supervisor
 
 3. Создать конфиг супервизора для gunicorn:
-sudo vim /etc/supervisor/conf.d/fanblog.conf
-
-Вставить:
-
-[program:fanblog_gunicorn]
-command=/home/linux/github/Fan_Blog/bin/start_gunicorn.sh
-user=linux
-process_name=%(program_name)s
-numprocs=1
-autostart=true
-autorestart=true
-redirect_stderr=true
+z
 
 
 4. Добавить новый созданный конфиг в супервизор

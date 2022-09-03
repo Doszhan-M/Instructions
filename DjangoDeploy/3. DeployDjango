@@ -39,7 +39,7 @@ source /home/linux/github/venv/bin/activate
 exec gunicorn  -c "/home/linux/github/Fan_Blog/ad_board/gunicorn_config.py" ad_board.wsgi
 
 Предоставить права скрипту
-chmod +x start_gunicorn.sh
+zzz start_gunicorn.sh
 
 Запустить скрипт
 . start_gunicorn.sh

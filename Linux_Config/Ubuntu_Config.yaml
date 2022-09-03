@@ -1,178 +1,183 @@
 установка системы:
-Во время установки выбрать минимальная установка + поддержка проприетарных драйверов
+  Во время установки выбрать минимальная установка + поддержка проприетарных драйверов
 
 
 обновить систему:
-sudo apt update
-sudo apt upgrade -y
-sudo reboot
+  sudo apt update
+  sudo apt upgrade -y
+  sudo reboot
 
 
 nvidia:
-В драйверах выбрать nvidia + выйти из сессии и отключить wayland
-sudo apt install -y inxi neofetch htop git
-neofetch
-inxi -G
-inxi -A
-sudo reboot
+  В драйверах выбрать nvidia + выйти из сессии и отключить wayland
+  sudo apt install -y inxi neofetch htop git
+  neofetch
+  inxi -G
+  inxi -A
+  sudo reboot
 
 
 смена клавиш раскладки:
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 
 
 chrome, vscode, сrow translate:
-скачать из офф сайта и установить через контекстное меню software installer
-также есть в Programs_Store
+  скачать из офф сайта и установить через контекстное меню software installer
 
 
 Telegram:
-sudo add-apt-repository ppa:atareao/telegram
-sudo apt-get update
-sudo apt-get install -y telegram
+  установить из flatpak
+minimize autostart telegram:
+  cd ~/.config/autostart 
+скопировать из:
+  vim /var/lib/flatpak/exports/share/applications/org.telegram.desktop.desktop
+создать новый desktop entry и вставить:
+  vim org.telegram.desktop.desktop
+заменить строку Exec с -startintray:
+  Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=telegram-desktop --file-forwarding org.telegram.desktop -startintray
 
 
 Из software center установить:
-gnome tweaks
-extension manager
-vlc
+  gnome tweaks
+  extension manager
+  vlc
 
 
 Установка расширении из extension manager:
-dash to panel
-Clipboard History
+  dash to panel
+  Clipboard History
 
 
 grub-settings:
-sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
-sudo apt update
-sudo apt install grub-customizer
-sudo grub-customizer
+  sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
+  sudo apt update
+  sudo apt install grub-customizer
+  sudo grub-customizer
 
 1):
 command for install custom theme:
-открыть в терминале папку ./Programs_Store/SleekTheme-BigSur
-sudo ./install.sh
-sudo update-grub
+  открыть в терминале папку ./Programs_Store/SleekTheme-BigSur
+  sudo ./install.sh
+  sudo update-grub
 2):
-cd github
-git clone https://github.com/vinceliuice/grub2-themes.git
-sudo ./install.sh -t whitesur -s 4k
-sudo update-grub
+  cd github
+  git clone https://github.com/vinceliuice/grub2-themes.git
+  sudo ./install.sh -t whitesur -s 4k
+  sudo update-grub
 
 если grub не сохраняет последнею загрузку:
-sudo nano  /etc/default/grub
+  sudo nano  /etc/default/grub
 добавить:
-GRUB_DEFAULT="saved"
-GRUB_SAVEDEFAULT=true
-sudo update-grub
+  GRUB_DEFAULT="saved"
+  GRUB_SAVEDEFAULT=true
+  sudo update-grub
 
 
 flathub:
-https://flatpak.org/setup/Ubuntu
-sudo apt install flatpak -y
-sudo apt install gnome-software-plugin-flatpak -
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo reboot
+  https://flatpak.org/setup/Ubuntu
+  sudo apt install flatpak -y
+  sudo apt install gnome-software-plugin-flatpak -
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  sudo reboot
 
-flatpak search chrom
-flatpak install flathub com.google.Chrome 
+  flatpak search chrom
+  flatpak install flathub com.google.Chrome 
 
 
 Добавить локаль на ru:
-sudo nano /etc/locale.gen
+  sudo nano /etc/locale.gen
 uncomment: ru_RU.UTF-8 UTF-8
-sudo locale-gen
-изменить локали в настройках
+  sudo locale-gen
+  изменить локали в настройках
 
 
 шорткат для терминала:
-terminal
-gnome-terminal
-super + T
+  terminal
+  gnome-terminal
+  super + T
 
 
 
 установка zsh:
-sudo apt -y install zsh
-zsh
-sudo apt-get install curl -y
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-nano ~/.zshrc
-plugins=(git zsh-autosuggestions history-substring-search zsh-syntax-highlighting)
-ZSH_THEME="philips"
-chsh
-/bin/zsh
+  sudo apt -y install zsh
+  zsh
+  sudo apt-get install curl -y
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+  nano ~/.zshrc
+  plugins=(git zsh-autosuggestions history-substring-search zsh-syntax-highlighting)
+  ZSH_THEME="philips"
+  chsh
+  /bin/zsh
 
 Статьи:
-https://habr.com/ru/post/516004/
+  https://habr.com/ru/post/516004/
 по умолчанию:
-https://losst.ru/nastrojka-zsh-i-oh-my-zsh
+  https://losst.ru/nastrojka-zsh-i-oh-my-zsh
 темы отредактировать vi ~/.zshrc:
-https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+  https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 Автодополнение:
-https://tehnojam.ru/category/software/oh-my-zsh-autocomlite-like-fish.html
+  https://tehnojam.ru/category/software/oh-my-zsh-autocomlite-like-fish.html
 
 
 
 Install solaar:
-sudo apt update
-sudo apt -y install solaar
+  sudo apt update
+  sudo apt -y install solaar
 
 
 Docker:
-sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt update
+  sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  sudo apt update
 
 убрать warning deprecated:
 manual: https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system
-sudo apt-key list
+    sudo apt-key list
 взять последние 2 блока из pub: [ unknown] Docker Release (CE deb) <docker@docker.com>
 вставить после export:
-sudo apt-key export 0EBFCD88 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
+    sudo apt-key export 0EBFCD88 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
 
-sudo apt install docker-ce -y
-sudo systemctl start docker
-sudo systemctl enable docker
+    sudo apt install docker-ce -y
+    sudo systemctl start docker
+    sudo systemctl enable docker
 
-sudo usermod -aG docker ${USER}
-su - ${USER}
-id -nG
+    sudo usermod -aG docker ${USER}
+    su - ${USER}
+    id -nG
 
 
 
 Docker-compose:
 страница релизов: https://github.com/docker/compose/releases
 версию 2 не ставить: 1.29.2
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
+  docker-compose --version
 
 
 
 TimeShift:
-sudo apt install timeshift -y
+  sudo apt install timeshift -y
 
 
 port proton utf8:
-https://www.blast.hk/threads/111953/
+  https://www.blast.hk/threads/111953/
 
 
 Символьная ссылка на папку в другом диске:
-sudo ln -s /mnt/E2666DE8666DBE43/Store /home/asus/Store
+  sudo ln -s /mnt/E2666DE8666DBE43/Store /home/asus/Store
 
 
 openssh-server для ssh подключения:
-sudo apt install openssh-server
-sudo systemctl enable ssh
-sudo service ssh status 
-sudo vi /etc/ssh/sshd_config
-port 23
-sudo systemctl restart ssh
-
-sudo systemctl disable ssh
+  sudo apt install openssh-server
+  sudo systemctl enable ssh
+  sudo service ssh status 
+  sudo vi /etc/ssh/sshd_config
+  port 23
+  sudo systemctl restart ssh
+Если надо отключить:
+  sudo systemctl disable ssh
