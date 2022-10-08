@@ -127,6 +127,9 @@ Install solaar:
   sudo apt update
   sudo apt -y install solaar
 
+Если подсветка клавиатуры не включается:
+  sudo /etc/acpi/asus-keyboard-backlight.sh
+
 
 Docker:
   sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
@@ -173,11 +176,11 @@ port proton utf8:
 
 
 openssh-server для ssh подключения:
-  sudo apt install openssh-server
-  sudo systemctl enable ssh
-  sudo service ssh status 
-  sudo vi /etc/ssh/sshd_config
-  port 23
-  sudo systemctl restart ssh
-Если надо отключить:
-  sudo systemctl disable ssh
+    sudo apt install openssh-server
+    sudo systemctl enable ssh
+    sudo service ssh status 
+    sudo vi /etc/ssh/sshd_config
+    port 23
+    sudo systemctl restart ssh
+    Если надо отключить:
+      sudo systemctl disable ssh
