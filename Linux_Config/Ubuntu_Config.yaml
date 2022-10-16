@@ -52,7 +52,7 @@ minimize autostart telegram:
 grub-settings:
   sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
   sudo apt update
-  sudo apt install grub-customizer
+  sudo apt install grub-customizer -y
   sudo grub-customizer
 
 1):
@@ -67,11 +67,11 @@ command for install custom theme:
   sudo update-grub
 
 если grub не сохраняет последнею загрузку:
-  sudo nano  /etc/default/grub
+  sudo vim  /etc/default/grub 
 добавить:
   GRUB_DEFAULT="saved"
   GRUB_SAVEDEFAULT=true
-  sudo update-grub
+  sudo update-grub  
 
 
 flathub:
@@ -106,7 +106,7 @@ uncomment: ru_RU.UTF-8 UTF-8
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-  nano ~/.zshrc
+  nano ~/.zshrc 
   plugins=(git zsh-autosuggestions history-substring-search zsh-syntax-highlighting)
   ZSH_THEME="philips"
   chsh
