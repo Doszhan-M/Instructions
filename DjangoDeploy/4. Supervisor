@@ -5,8 +5,16 @@ apt-get install supervisor -y
 supervisord -v
 systemctl status supervisor
 
-3. Создать конфиг супервизора для gunicorn:
-z
+3. Создать конфиг супервизора для gunicorn(пример):
+[program:fanblog_celery]
+directory=path to dir
+command=/home/linux/github/Fan_Blog/bin/start_celery.sh
+user=linux
+process_name=%(program_name)s
+numprocs=1
+autostart=true
+autorestart=true
+redirect_stderr=true
 
 
 4. Добавить новый созданный конфиг в супервизор
