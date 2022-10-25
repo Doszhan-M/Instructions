@@ -8,7 +8,23 @@ https://computingforgeeks.com/install-pritunl-vpn-on-debian-proxmox-ve/
 pritunl
 Mu61cv@^i7KU
 
-google_vpn
-vpn_org
 
-doszhan_test
+sudo apt install openvpn -y
+sudo systemctl stop openvpn.service
+sudo systemctl start openvpn.service
+sudo systemctl status openvpn.service
+
+sudo vim /etc/supervisor/conf.d/openvpn.conf
+
+[program:openvpn]
+command=sudo openvpn --config /home/boxroom/programs/ovpn/vpn_org_boxroom_google_vpn.ovpn
+user=boxroom
+process_name=%(program_name)s
+numprocs=1
+autostart=true
+autorestart=true
+redirect_stderr=true
+
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl
