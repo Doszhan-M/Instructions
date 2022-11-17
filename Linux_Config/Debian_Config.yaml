@@ -264,3 +264,6 @@ sudo grub-customizer
 
 TimeShift Settings:
 sudo apt install timeshift -y
+
+
+sudo vim /etc/network/interfaces

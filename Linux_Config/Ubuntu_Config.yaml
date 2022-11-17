@@ -86,7 +86,7 @@ flathub:
 
 
 Добавить локаль на ru:
-  sudo nano /etc/locale.gen
+  sudo vim /etc/locale.gen
 uncomment: ru_RU.UTF-8 UTF-8
   sudo locale-gen
   изменить локали в настройках
@@ -106,7 +106,7 @@ uncomment: ru_RU.UTF-8 UTF-8
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-  nano ~/.zshrc 
+  vim ~/.zshrc 
   plugins=(git zsh-autosuggestions history-substring-search zsh-syntax-highlighting)
   ZSH_THEME="philips"
   chsh
