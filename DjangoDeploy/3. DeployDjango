@@ -27,7 +27,7 @@ raw_env = 'DJANGO_SETTINGS_MODULE=ad_board.settings'
 Проверить работоспособность
 gunicorn  -c "/home/linux/github/Fan_Blog/ad_board/gunicorn_config.py" ad_board.wsgi
 
-Уровнем выше в папке bin создать bash скрип, которй запустить gunicorn
+Уровнем выше в папке bin создать bash скрип, который запустить gunicorn
 cd ../
 mkdir bin
 cd bin

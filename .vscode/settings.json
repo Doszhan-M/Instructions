@@ -40,12 +40,14 @@
         "скрола",
         "djcelery",
         "psql",
-        
     ],
     "cSpell.words": [
         "adduser",
         "bitnami",
         "chsh",
+        "doszhan",
+        "ovpn",
+        "pritunl",
         "startintray"
     ],
 }
