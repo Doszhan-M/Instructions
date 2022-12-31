@@ -52,7 +52,7 @@ minimize autostart telegram:
 
 
 grub-settings:
-  sudo add-apt-repository ppa:trebelnik-stefina/grub-customizer
+  sudo add-apt-repository ppa:danielrichter2007/grub-customizer
   sudo apt update
   sudo apt install grub-customizer -y
   sudo grub-customizer
