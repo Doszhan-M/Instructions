@@ -47,6 +47,8 @@ minimize autostart telegram:
 Установка расширении из extension manager:
   dash to panel
   Clipboard History
+  Workspace indicator
+  AppIndicator and KStatusNotifierItem Support
 
 
 grub-settings:
