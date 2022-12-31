@@ -100,7 +100,6 @@ uncomment: ru_RU.UTF-8 UTF-8
   super + T
 
 
-
 установка zsh:
   sudo apt -y install zsh
   zsh
@@ -174,7 +173,8 @@ port proton utf8:
 
 
 Символьная ссылка на папку в другом диске:
-  sudo ln -s /media/asus/E2666DE8666DBE43/Store /home/asus/Store
+  в утилите disks задать auto mount для диска
+  sudo ln -s /mnt/E2666DE8666DBE43/Store /home/asus/Store
 
 
 openssh-server для ssh подключения:
