@@ -63,9 +63,9 @@ command for install custom theme:
   sudo ./install.sh
   sudo update-grub
 2):
-  cd github
+  cd Programs
   git clone https://github.com/vinceliuice/grub2-themes.git
-  sudo ./install.sh -t whitesur -s 4k
+  sudo ./install.sh -t whitesur -s 2k
   sudo update-grub
 
 если grub не сохраняет последнею загрузку:
@@ -83,7 +83,7 @@ flathub:
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   sudo reboot
 
-  flatpak search chrom
+  flatpak search chrome
   flatpak install flathub com.google.Chrome 
 
 
@@ -174,7 +174,7 @@ port proton utf8:
 
 
 Символьная ссылка на папку в другом диске:
-  sudo ln -s /mnt/E2666DE8666DBE43/Store /home/asus/Store
+  sudo ln -s /media/asus/E2666DE8666DBE43/Store /home/asus/Store
 
 
 openssh-server для ssh подключения:
