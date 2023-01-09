@@ -8,7 +8,8 @@ add: </br>
 
 
 ## zsh path config:
-vim ~/.zshrc </br>
+vim ~/.zshrc 
+</br>
 add: </br>
 export PATH=$PATH:/home/asus/programs/sonar-scanner-4.7.0.2747-linux/bin
 
