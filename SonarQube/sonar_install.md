@@ -9,9 +9,9 @@ add: </br>
 
 ## zsh path config:
 vim ~/.zshrc 
+add: 
 </br>
-add: </br>
-export PATH=$PATH:/home/asus/programs/sonar-scanner-4.7.0.2747-linux/bin
+export PATH=$PATH:/home/asus/Programs/sonar-scanner-4.7/bin
 
 
 ### test credentials:
