@@ -108,7 +108,7 @@ uncomment: ru_RU.UTF-8 UTF-8
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
   vim ~/.zshrc 
-  plugins=(git zsh-autosuggestions history-substring-search zsh-syntax-highlighting)
+  plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
   ZSH_THEME="philips"
   chsh
   /bin/zsh
