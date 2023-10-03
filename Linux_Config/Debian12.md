@@ -129,3 +129,9 @@ sudo apt -y purge mlterm-im-skk mlterm-im-uim mlterm-im-wnn mlterm-tiny mlterm-i
 ```
 https://fostips.com/install-nvidia-driver-debian-12/
 ```
+
+## Символьная ссылка на папку в другом диске:
+```
+в утилите disks задать auto mount для диска
+sudo ln -s /mnt/E2666DE8666DBE43/Store /home/asus/Store
+```
