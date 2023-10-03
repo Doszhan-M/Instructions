@@ -8,7 +8,7 @@ defaultyes=True
 sudo dnf autoremove
 sudo dnf clean all  
 
-перед апдтом выполнить:
+перед аптом выполнить:
 sudo rpm -Va --nofiles --nodigest
 sudo rpm --rebuilddb
 sudo dnf update
