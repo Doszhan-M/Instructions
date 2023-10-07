@@ -47,8 +47,10 @@
         "chsh",
         "doszhan",
         "ovpn",
+        "powersave",
         "pritunl",
         "startintray",
+        "systemtap",
         "Забекапить"
     ],
 }

@@ -138,3 +138,17 @@ https://fostips.com/install-nvidia-driver-debian-12/
 в утилите disks задать auto mount для диска
 sudo ln -s /mnt/E2666DE8666DBE43/Store /home/asus/Store
 ```
+
+## Настройка профилями производительности tuned
+```
+sudo apt install tuned tuned-utils tuned-utils-systemtap
+sudo systemctl status tuned
+sudo systemctl start tuned
+sudo tuned-adm list
+sudo tuned-adm active
+sudo tuned-adm profile powersave
+sudo systemctl restart tuned
+sudo tuned-adm active
+Отключение tuned:
+sudo tuned-adm off
+```
