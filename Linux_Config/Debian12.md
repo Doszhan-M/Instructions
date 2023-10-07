@@ -116,6 +116,9 @@ command for install custom theme:
   GRUB_DEFAULT="saved"
   GRUB_SAVEDEFAULT=true
   sudo update-grub  
+  GRUB_DISABLE_OS_PROBER=false
+  
+sudo update-grub
 ```
 
 ## Удалить ненужные программы:
