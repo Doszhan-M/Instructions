@@ -146,7 +146,7 @@ sudo systemctl status tuned
 sudo systemctl start tuned
 sudo tuned-adm list
 sudo tuned-adm active
-sudo tuned-adm profile powersave
+sudo tuned-adm profile intel-sst
 sudo systemctl restart tuned
 sudo tuned-adm active
 Отключение tuned:
