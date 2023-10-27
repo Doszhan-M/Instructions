@@ -276,3 +276,12 @@ sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.11 1 
 sudo update-alternatives --install /usr/bin/pip pip /usr/local/bin/pip3.11 1
 sudo update-alternatives --install /usr/bin/pip3 pip3 /usr/local/bin/pip3.11 1
+
+
+Изменить яркость экрана:
+Найти экран:
+  xrandr -q 
+  "DP-1"
+От 0 до 1:
+  xrandr --output DP-1 --brightness 0.4 
+  
