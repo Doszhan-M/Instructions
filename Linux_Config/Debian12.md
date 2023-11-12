@@ -139,16 +139,10 @@ https://fostips.com/install-nvidia-driver-debian-12/
 sudo ln -s /mnt/E2666DE8666DBE43/Store /home/asus/Store
 ```
 
-## Настройка профилями производительности tuned
-```
-sudo apt install tuned tuned-utils tuned-utils-systemtap
-sudo systemctl status tuned
-sudo systemctl start tuned
-sudo tuned-adm list
-sudo tuned-adm active
-sudo tuned-adm profile intel-sst
-sudo systemctl restart tuned
-sudo tuned-adm active
-Отключение tuned:
-sudo tuned-adm off
-```
+## Изменить фон загрузки
+создать banner.png
+sudo cp banner.png /usr/share/images/desktop-base/
+sudo vim /etc/default/grub:
+-------------------------------------------------------------
+GRUB_BACKGROUND="/usr/share/images/desktop-base/banner.png"
+-------------------------------------------------------------
