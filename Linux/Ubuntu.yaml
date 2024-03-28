@@ -174,7 +174,7 @@ port proton utf8:
 
 Символьная ссылка на папку в другом диске:
   в утилите disks задать auto mount для диска
-  sudo ln -s /mnt/E2666DE8666DBE43/Store /home/asus/Store
+  sudo ln -s /mnt/BCAAF682AAF6388A/ /home/asus/WinDisk
 
 
 openssh-server для ssh подключения:
