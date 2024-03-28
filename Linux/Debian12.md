@@ -75,6 +75,8 @@ reboot pc
 ```
 sudo apt update
 sudo apt -y install solaar
+Если подсветка клавиатуры не включается:
+sudo /etc/acpi/asus-keyboard-backlight.sh
 ```
 
 ## Изменить локаль на ru:
@@ -131,6 +133,10 @@ sudo apt -y purge mlterm-im-skk mlterm-im-uim mlterm-im-wnn mlterm-tiny mlterm-i
 ## Install NVIDIA 
 ```
 https://fostips.com/install-nvidia-driver-debian-12/
+sudo apt install -y inxi neofetch htop git
+neofetch
+inxi -G
+inxi -A
 ```
 
 ## Символьная ссылка на папку в другом диске:
@@ -146,3 +152,25 @@ sudo vim /etc/default/grub:
 -------------------------------------------------------------
 GRUB_BACKGROUND="/usr/share/images/desktop-base/banner.png"
 -------------------------------------------------------------
+
+## Ограничение заряда батареи на 90%
+```
+sudo apt update  
+sudo apt install tlp tlp-rdw  
+sudo vim /etc/tlp.conf  
+-------------------------------------------------------------
+START_CHARGE_THRESH_BAT0=75
+STOP_CHARGE_THRESH_BAT0=90
+-------------------------------------------------------------
+sudo tlp start
+sudo tlp-stat
+```
+
+## Изменить яркость экрана:
+```
+Найти экран:
+  xrandr -q 
+  "DP-1"
+От 0 до 1:
+  xrandr --output DP-1 --brightness 0.4 
+```
