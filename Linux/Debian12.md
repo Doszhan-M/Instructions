@@ -8,6 +8,7 @@ sudo reboot
 
 flatpak search chrome
 flatpak install flathub com.google.Chrome 
+flatpak install org.telegram.desktop 
 ```
 
 ## Установка расширении:
