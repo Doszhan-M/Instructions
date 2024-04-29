@@ -43,12 +43,6 @@ super + T
 sudo apt update && sudo apt upgrade -y && sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg -y && curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list  /dev/null && apt-cache policy docker-ce && sudo apt update && sudo apt install docker-ce -y && sudo systemctl start docker && sudo systemctl enable docker && sudo usermod -aG docker ${USER} && sudo su - ${USER} && id -nG && docker --version
 ```
 
-## docker-compose:
-```
-https://github.com/docker/compose/tags
-export VER="1.29.2" && sudo curl -L "https://github.com/docker/compose/releases/download/${VER}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose && docker-compose --version
-```
-
 ## zsh:
 ```
 sudo apt -y install zsh
@@ -91,7 +85,7 @@ uncomment: ru_RU.UTF-8 UTF-8
 
 ## openssh-server:
 ```
-sudo apt install openssh-server
+sudo apt install openssh-server -y
 sudo systemctl enable ssh
 sudo service ssh status 
 sudo vi /etc/ssh/sshd_config
@@ -103,23 +97,30 @@ sudo systemctl disable ssh
 
 ## grub-settings:
 ```
-  sudo apt update
-  sudo apt install grub-customizer -y
-  sudo grub-customizer
+sudo apt update
+sudo apt install grub-customizer -y
+sudo grub-customizer
+
+Если не удалось найти в apt, то добавить репозиторий:
+sudo add-apt-repository ppa:danielrichter2007/grub-customizer 
+sudo apt-get update 
+sudo apt-get install grub-customizer -y
+Потом удалить репозитории:
+sudo add-apt-repository --remove ppa:danielrichter2007/grub-customizer
 
 command for install custom theme:
-  cd Programs
-  git clone https://github.com/vinceliuice/grub2-themes.git
-  sudo ./install.sh -t whitesur -s 2k
-  sudo update-grub
+cd Programs
+git clone https://github.com/vinceliuice/grub2-themes.git
+sudo ./install.sh -t whitesur -s 2k
+sudo update-grub
 
 если grub не сохраняет последнею загрузку:
-  sudo vim  /etc/default/grub 
+sudo vim  /etc/default/grub 
 добавить:
-  GRUB_DEFAULT="saved"
-  GRUB_SAVEDEFAULT=true
-  sudo update-grub  
-  GRUB_DISABLE_OS_PROBER=false
+GRUB_DEFAULT="saved"
+GRUB_SAVEDEFAULT=true
+sudo update-grub  
+GRUB_DISABLE_OS_PROBER=false
   
 sudo update-grub
 ```
@@ -157,7 +158,7 @@ GRUB_BACKGROUND="/usr/share/images/desktop-base/banner.png"
 ## Ограничение заряда батареи на 90%
 ```
 sudo apt update  
-sudo apt install tlp tlp-rdw  
+sudo apt install tlp tlp-rdw -y
 sudo vim /etc/tlp.conf  
 -------------------------------------------------------------
 START_CHARGE_THRESH_BAT0=75
