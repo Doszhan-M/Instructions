@@ -47,13 +47,12 @@ sudo apt update && sudo apt upgrade -y && sudo apt install apt-transport-https c
 ```
 sudo apt -y install zsh
 zsh
-sudo apt-get install curl -y
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 vim ~/.zshrc 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_THEME="philips"
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 reboot pc
 
 Статьи:
@@ -103,8 +102,8 @@ sudo grub-customizer
 
 Если не удалось найти в apt, то добавить репозиторий:
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer 
-sudo apt-get update 
-sudo apt-get install grub-customizer -y
+sudo apt update 
+sudo apt install grub-customizer -y
 Потом удалить репозитории:
 sudo add-apt-repository --remove ppa:danielrichter2007/grub-customizer
 
@@ -118,7 +117,7 @@ sudo update-grub
 sudo vim  /etc/default/grub 
 добавить:
 GRUB_DEFAULT="saved"
-GRUB_SAVEDEFAULT=true
+GRUB_SAVEDEFAULT=true 
 sudo update-grub  
 GRUB_DISABLE_OS_PROBER=false
   
