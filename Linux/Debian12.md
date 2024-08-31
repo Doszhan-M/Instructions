@@ -45,7 +45,7 @@ sudo apt update && sudo apt upgrade -y && sudo apt install apt-transport-https c
 
 ## zsh:
 ```
-sudo apt -y install zsh
+sudo apt -y install zsh vim
 zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
@@ -63,6 +63,12 @@ reboot pc
   https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 Автодополнение:
   https://tehnojam.ru/category/software/oh-my-zsh-autocomlite-like-fish.html
+
+Можно установить через готовый скрипт:
+vim install_zsh.sh
+chmod +x install_zsh.sh
+./install_zsh.sh
+sudo reboot
 ```
 
 ## Install solaar:
