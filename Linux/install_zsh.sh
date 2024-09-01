@@ -5,7 +5,7 @@ sudo apt update
 sudo apt -y install zsh curl git
 
 # Установка Oh My Zsh
-yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Определение переменной ZSH_CUSTOM
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
@@ -26,3 +26,5 @@ if grep -q "plugins=(" ~/.zshrc; then
 else
     echo 'plugins=(git zsh-autosuggestions zsh-syntax-highlighting)' >> ~/.zshrc
 fi
+
+echo "Установка и настройка Zsh завершена успешно!"
