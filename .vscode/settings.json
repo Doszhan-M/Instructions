@@ -51,11 +51,13 @@
         "doszhan",
         "keyrings",
         "mscorefonts",
+        "NOPASSWD",
         "ovpn",
         "powersave",
         "pritunl",
         "startintray",
         "systemtap",
+        "xrandr",
         "Забекапить"
     ],
 }

@@ -181,3 +181,10 @@ sudo tlp-stat
 От 0 до 1:
   xrandr --output DP-1 --brightness 0.4 
 ```
+
+
+# Чтобы для пользователя не запрашивался пароль
+```
+sudo visudo
+username ALL=(ALL) NOPASSWD:ALL
+```
