@@ -114,8 +114,9 @@ sudo apt install grub-customizer -y
 sudo add-apt-repository --remove ppa:danielrichter2007/grub-customizer
 
 command for install custom theme:
-cd Programs
+cd ~/Programs
 git clone https://github.com/vinceliuice/grub2-themes.git
+GRUB_SAVEDEFAULT=true
 sudo ./install.sh -t whitesur -s 2k
 sudo update-grub
 
