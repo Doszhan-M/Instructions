@@ -1,5 +1,0 @@
-В итоге на Windows у меня получилось следующим образом:
-Старая версия Redis отсюда (спасибо @Алексей Загребельный)
-Для запуска Redis-server распаковываем архив и запускаем файл redis-server.exe
-Дополнительно установка eventlet (pip install eventlet)
-Celery запускаем командой celery -A ProjectName worker -l INFO -P eventlet

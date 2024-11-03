@@ -1,7 +1,0 @@
-sudo -u postgres psql
-
-CREATE DATABASE test_cargo_db4;
-ALTER ROLE cargo SET client_encoding TO 'utf8';
-ALTER ROLE cargo SET default_transaction_isolation TO 'read committed';
-ALTER ROLE cargo SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE test_cargo_db4 TO cargo;

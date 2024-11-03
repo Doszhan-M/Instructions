@@ -18,6 +18,8 @@ flatpak install org.telegram.desktop
 Dash To Panel
 AppIndicator and KStatusNotifierItem
 Clipboard History
+Burn my Windows
+Compiz Windows Effect
 ```
 
 ## Переключение раскладки клавиатуры:
