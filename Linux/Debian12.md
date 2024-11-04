@@ -1,3 +1,32 @@
+## Если не настроен apt после установки
+```
+nano /etc/apt/sources.list
+--------------------------------------------------------------------------------------
+deb http://httpredir.debian.org/debian bookworm main non-free-firmware
+deb-src http://httpredir.debian.org/debian bookworm main non-free-firmware
+
+deb http://security.debian.org/debian-security bookworm-security main non-free-firmware
+deb-src http://security.debian.org/debian-security bookworm-security main non-free-firmware
+
+deb http://httpredir.debian.org/debian bookworm-updates main non-free-firmware
+deb-src http://httpredir.debian.org/debian bookworm-updates main non-free-firmware
+--------------------------------------------------------------------------------------
+
+nano /etc/resolv.conf 
+--------------------------------------------------------------------------------------
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+--------------------------------------------------------------------------------------
+
+apt update && apt install sudo && usermod -aG sudo pk-dev && reboot
+sudo visudo
+F1rstB1t
+pk-dev ALL=(ALL) NOPASSWD:ALL
+sudo apt update && sudo apt upgrade -y && sudo reboot
+```
+
+
+
 ## flathub install
 ```
 https://flatpak.org/setup/Debian
