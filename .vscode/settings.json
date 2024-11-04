@@ -57,6 +57,7 @@
         "ovpn",
         "powersave",
         "pritunl",
+        "resolv",
         "startintray",
         "systemtap",
         "xrandr",
