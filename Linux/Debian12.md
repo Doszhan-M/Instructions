@@ -1,5 +1,6 @@
 ## Если не настроен apt после установки
 ```
+su -
 nano /etc/apt/sources.list
 --------------------------------------------------------------------------------------
 deb http://httpredir.debian.org/debian bookworm main non-free-firmware
