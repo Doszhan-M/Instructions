@@ -16,7 +16,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 
 # Настройка .zshrc: добавление темы и плагинов
 if grep -q "ZSH_THEME=" ~/.zshrc; then
-    sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="philips"/' ~/.zshrc
+    sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="daveverwer"/' ~/.zshrc
 else
     echo 'ZSH_THEME="philips"' >> ~/.zshrc
 fi
@@ -26,5 +26,7 @@ if grep -q "plugins=(" ~/.zshrc; then
 else
     echo 'plugins=(git zsh-autosuggestions zsh-syntax-highlighting)' >> ~/.zshrc
 fi
+
+sudo chsh -s $(which zsh) $USER
 
 echo "Установка и настройка Zsh завершена успешно!"

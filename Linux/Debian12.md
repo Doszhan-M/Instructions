@@ -100,7 +100,7 @@ reboot pc
 vim install_zsh.sh
 chmod +x install_zsh.sh
 ./install_zsh.sh
-sudo reboot
+sudo reboot  # необязательно, переподключиться
 ```
 
 ## Install solaar:
