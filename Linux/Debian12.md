@@ -47,7 +47,8 @@ flatpak install org.telegram.desktop
 
 Dash To Panel
 AppIndicator and KStatusNotifierItem
-Clipboard History
+Clipboard Indicator
+Clipboard History (не совместим с ubuntu)
 Burn my Windows
 Compiz Windows Effect
 ```
